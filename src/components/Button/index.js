@@ -16,8 +16,8 @@ function Button({
     small = false, 
     large=false, 
     children, 
-    className,
     onClick,
+    className,
     leftIcon,
     rightIcon,
     ...passProps }) {
