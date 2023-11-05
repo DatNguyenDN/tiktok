@@ -25,6 +25,7 @@ import styles from './Header.module.scss';
 import images from '@/assets/images';
 import AccountItem from '@/components/AccountItem';
 import Menu from '@/components/Popper/Menu';
+import Image from '@/components/Images';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -157,9 +158,10 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <img
-                                src="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-6/313127960_2563509337125105_1743630119541912110_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHgtXY0lABr05KE_YmZObns2S18LBCTDWvZLXwsEJMNa-2Az4NhSO_WZT9RExxmbKhIOrrVPFtM6j8EjPIsDIwo&_nc_ohc=e1qV1fZixN0AX-ojlOd&_nc_ht=scontent.fdad3-4.fna&oh=00_AfCUkBPAD-wPLl7Dw2LGFkoUfABQMSqwLORyw1xg2m-_8w&oe=654A5362"
                                 className={cx('user-avatar')}
+                                src="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-6/313127960_2563509337125105_1743630119541912110_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHgtXY0lABr05KE_YmZObns2S18LBCTDWvZLXwsEJMNa-2Az4NhSO_WZT9RExxmbKhIOrrVPFtM6j8EjPIsDIwo&_nc_ohc=e1qV1fZixN0AX-ojlOd&_nc_ht=scontent.fdad3-4.fna&oh=00_AfCUkBPAD-wPLl7Dw2LGFkoUfABQMSqwLORyw1xg2m-_8w&oe=654A5362"
                                 alt="Dat Nguyen"
+                                // fallback =""
                             />
                         ) : (
                             <button className={cx('more-btn')}>
