@@ -1,5 +1,5 @@
 .wrapper {
-    --seacrh-border-radius: 92px;
+    --search-border-radius: 92px;
     --search-height: 46px;
     --search-top-spacer: 9px;
     --search-button-width: 52px;
@@ -20,13 +20,15 @@
     justify-content: space-between;
 }
 
-
-
+.logo-link{
+    display: flex;
+}
 // Actions
 .actions {
     display: flex;
     align-items: center;
 }
+
 .more-btn {
     font-size: 2rem;
     margin-left: 28px;
@@ -45,15 +47,6 @@
     cursor: pointer;
 }
 
-.user-avatar {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-left: 14px;
-    cursor: pointer;
-}
-
 .badge {
     position: absolute;
     top: -3px;
@@ -65,6 +58,15 @@
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--white);
-    font-family: 'TikTokFont', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--primary);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 14px;
+    cursor: pointer;
 }

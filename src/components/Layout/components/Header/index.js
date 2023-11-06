@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'tippy.js/dist/tippy.css'; // optional
 import {
@@ -6,7 +7,7 @@ import {
     faCoins,
     faEllipsisVertical,
     faGear,
-    faGlobe,
+    faEarthAsia,
     faKeyboard,
     faSignOut,
     faUser,
@@ -17,6 +18,7 @@ import Button from '@/components/Button';
 import styles from './Header.module.scss';
 import images from '@/assets/images';
 
+import routesConfig from '@/config/routes'
 import Menu from '@/components/Popper/Menu';
 import Image from '@/components/Images';
 import { InboxIcon, MessageIcon, UploadIcon } from '@/components/Icons';
@@ -27,16 +29,18 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
         children: {
             title: 'Language',
             data: [
                 {
+                    type: 'language',
                     code: 'en',
                     title: 'English',
                 },
                 {
+                    type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
                 },
@@ -55,7 +59,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-
     const currentUser = true;
 
     // Handle logic
@@ -89,17 +92,18 @@ function Header() {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
             to: '/logout',
-            separate: true, // thêm gạch trên dòng log out
+            separate: true,
         },
     ];
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {/* <div className={cx('logo')}> */}
+                <Link to={routesConfig.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="Tiktok" />
-                {/* </div> */}
-                <Search/>
+                </Link>
 
+                <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -117,7 +121,7 @@ function Header() {
                             <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
-                                    <span className={cx('badge')}>99</span>
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
@@ -127,13 +131,13 @@ function Header() {
                             <Button primary>Log in</Button>
                         </>
                     )}
+
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-6/313127960_2563509337125105_1743630119541912110_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHgtXY0lABr05KE_YmZObns2S18LBCTDWvZLXwsEJMNa-2Az4NhSO_WZT9RExxmbKhIOrrVPFtM6j8EjPIsDIwo&_nc_ohc=e1qV1fZixN0AX-ojlOd&_nc_ht=scontent.fdad3-4.fna&oh=00_AfCUkBPAD-wPLl7Dw2LGFkoUfABQMSqwLORyw1xg2m-_8w&oe=654A5362"
-                                alt="Dat Nguyen"
-                                // fallback =""
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
+                                alt="Nguyen Van A"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

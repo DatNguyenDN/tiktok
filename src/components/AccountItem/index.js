@@ -9,7 +9,10 @@ const cx = classNames.bind(styles);
 
 function AccountItem({data}) {
     return (
+        
+
         <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+            
             <Image 
             className={cx('avatar')} 
             src={data.avatar}
@@ -21,6 +24,7 @@ function AccountItem({data}) {
                 </h4>
                 <span className={cx('username')}>{data.nickname}</span>
             </div>
+            
         </Link>
     );
 }
