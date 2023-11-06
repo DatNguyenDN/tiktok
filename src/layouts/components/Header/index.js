@@ -18,7 +18,7 @@ import Button from '@/components/Button';
 import styles from './Header.module.scss';
 import images from '@/assets/images';
 
-import routesConfig from '@/config/routes'
+import config from '@/config'
 import Menu from '@/components/Popper/Menu';
 import Image from '@/components/Images';
 import { InboxIcon, MessageIcon, UploadIcon } from '@/components/Icons';
@@ -214,7 +214,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
 
