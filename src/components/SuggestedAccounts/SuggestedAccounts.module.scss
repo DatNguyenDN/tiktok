@@ -9,6 +9,7 @@
 .account-item{
     display: flex;
     padding: 8px;
+    cursor: pointer;
 }
 
 .avatar{
@@ -24,7 +25,6 @@
 }
 
 .nickname{
-    
     line-height: 1;
     font-size: 1.6rem;
     color: #161823;
